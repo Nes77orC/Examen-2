@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string.h>
+#include <cctype>
+int Buscar2(char *Array);
+
+int main()
+{
+    
+char array[]="7777ax7222mn1987norst201987";
+//std::cout<<"Digite el texto a verificar: "<<std::endl;
+//std::cin >>array;
+int Resultado;
+Resultado = Buscar2(array);
+        std::cout<<"Encontro "<<Resultado<<" numeros de 4 cifras"<<std::endl;
+}
+
+int Buscar2(char *Array)
+{
+int longitudMax = strlen(Array);
+int aux=0;
+int aux2=0;
+char ver;
+for(int i=0; i<longitudMax; i++)
+    {
+      ver=Array[i];  
+ if(isdigit(Array[i]))
+ {
+  aux=aux+1;
+ 
+    if(aux==4)
+    {
+    aux2=aux2+1;
+     aux=0;
+     }
+ } 
+  else
+  {
+  aux=0;
+  }
+}
+return aux2;
+}
