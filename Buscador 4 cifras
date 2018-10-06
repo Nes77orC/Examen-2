@@ -5,10 +5,14 @@ int Buscar2(char *Array);
 
 int main()
 {
-    
+//declara la cadena y la inicializa       
 char array[]="7777ax7222mn1987norst201987";
+
+//estas líneas son opcionales para solicitar el ingreso de la cadena de caracteres
 //std::cout<<"Digite el texto a verificar: "<<std::endl;
 //std::cin >>array;
+
+// declara la variable que utilizaremos para asignarle el valor que arroja la función
 int Resultado;
 Resultado = Buscar2(array);
         std::cout<<"Encontro "<<Resultado<<" numeros de 4 cifras"<<std::endl;
@@ -16,17 +20,20 @@ Resultado = Buscar2(array);
 
 int Buscar2(char *Array)
 {
+//se hace el llamado a la función strlen que cuenta la cantidad de caracteres en un arreglo
 int longitudMax = strlen(Array);
 int aux=0;
 int aux2=0;
-char ver;
+
+//ciclo que recorre el arreglo
 for(int i=0; i<longitudMax; i++)
     {
-      ver=Array[i];  
+// pregunta si no hay un caracter es un número decimal y si lo hay acumula en la variable "aux" pero si no es caracter numerico entonces aux= 0   
  if(isdigit(Array[i]))
  {
   aux=aux+1;
- 
+
+// Cuando encuentra 4 números decimales seguidos aumenta en 1 a la variable aux2 y resetea la variable aux
     if(aux==4)
     {
     aux2=aux2+1;
@@ -38,5 +45,6 @@ for(int i=0; i<longitudMax; i++)
   aux=0;
   }
 }
+//retorna al main el valor almacenado en aux2
 return aux2;
 }
