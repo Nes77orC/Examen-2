@@ -5,10 +5,15 @@ int Buscar(char *Array);
 
 int main()
 {
-    
+//declara la cadena y la inicializa    
 char array[]="@adfasdfasdfasdQQ@@";
+
+//estas líneas son opcionales para solicitar el ingreso de la cadena de caracteres
 //std::cout<<"Digite el texto a verificar: "<<std::endl;
 //std::cin >>array;
+
+
+// declara la variable que utilizaremos para asignarle el valor que arroja la función
 int Resultado;
 Resultado = Buscar(array);
         std::cout<<"Encontro "<<Resultado<<" caracteres extraños"<<std::endl;
@@ -16,12 +21,17 @@ Resultado = Buscar(array);
 
 int Buscar(char *Array)
 {
+//se hace el llamado a la función strlen que cuenta la cantidad de caracteres en un arreglo
 int longitudMax = strlen(Array);
 int aux=0;
+
+//ciclo que recorre el arreglo
 for(int i=0; i<longitudMax; i++)
     {
+// pregunta si no hay un caracter especial y si lo hay acumula en la variable "aux"    
  if(!isalnum(Array[i]))
   aux=aux+1;
 }
+//retorna al main el valor almacenado en aux
 return aux;
 }
